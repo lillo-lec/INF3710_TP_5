@@ -34,4 +34,6 @@ DatabaseController = __decorate([
     __metadata("design:paramtypes", [database_service_1.DatabaseService])
 ], DatabaseController);
 exports.DatabaseController = DatabaseController;
+// TODO: get, post, delete...
+// TODO: à travers de nodejs.json on partage les fonctions avec le client.
 //# sourceMappingURL=database.controller.js.map

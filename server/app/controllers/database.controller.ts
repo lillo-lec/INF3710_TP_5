@@ -15,3 +15,6 @@ export class DatabaseController {
     return router;
   }
 }
+
+  // TODO: get, post, delete...
+  // TODO: à travers de nodejs.json on partage les fonctions avec le client.
