@@ -1,0 +1,20 @@
+<div>
+  <nav class="navbar navbar-dark bg-dark main-nav">
+    <a class="navbar-brand title" href="/" matTooltip="Retournez à l'accueil">INF3710 - TP4</a>
+    <div class="navbar-expand mr-auto">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/insert">Ajouter</a>
+        <a class="nav-item nav-link active" routerLink="/modify">Modifier</a>
+        <a class="nav-item nav-link active" routerLink="/delete">Supprimer</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="home" *ngIf="route == ''">
+    <p>
+      Centre de gestion des Médecins
+    </p>
+    <button mat-raised-button color="primary" class="btn" routerLink="/display">Afficher les médecins!<mat-icon>arrow_right</mat-icon></button>
+  </div>
+  <router-outlet></router-outlet>
+</div>
