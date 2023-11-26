@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import * as pg from "pg";
 import "reflect-metadata";
+import { Medecin } from "/Users/lillo/Desktop/INF3710_TP_5/common/medecin";
 
 @injectable()
 export class DatabaseService {
@@ -22,10 +23,21 @@ export class DatabaseService {
     return res;
   }
 
-  public async addMedecin(idMedecin: number, prenom: string, nom: string, specialite: string, anneesExperience: number, idService: number): Promise<pg.QueryResult> {
+  public async addMedecin(medecin: Medecin): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
     const query = 'INSERT INTO hopital_bd.Medecins VALUES($1, $2, $3, $4, $5, $6)';
-    const values = [idMedecin, prenom, nom, specialite, anneesExperience, idService];
+    const values = [medecin.idMedecin, medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
+    const res = await client.query(query, values);
+    client.release()
+    return res;
+  }
+
+  public async modifyMedecin(medecin: Medecin): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+    const query = `UPTATE hopital_bd.Medecins
+                   SET prenom = $1, nom = $2, specialite = $3, anneesExperience = $4, idService = $5 
+                   WHERE idMedecin='${medecin.idMedecin}'`;
+    const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
     const res = await client.query(query, values);
     client.release()
     return res;
