@@ -1,8 +1,30 @@
 <div>
     <div class="home">
-      <p>
-        Afficher:
-      </p>
+        <div class="medecin-list">
+          <h2>Liste des Médecins</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Spécialité</th>
+                <th>Années d'expérience</th>
+                <th>ID du Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let medecin of medecins">
+                <td>{{ medecin.idMedecin }}</td>
+                <td>{{ medecin.prenom }}</td>
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.specialite }}</td>
+                <td>{{ medecin.anneesExperience }}</td>
+                <td>{{ medecin.idService }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
   </div>
   

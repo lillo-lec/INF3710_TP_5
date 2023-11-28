@@ -32,7 +32,7 @@ export class CommunicationService {
   }
 
   
- getAllMedecin(): Observable<Medecin[]> {
+getAllMedecin(): Observable<Medecin[]> {
   return this.http.get<Medecin[]>(`${this.BASE_URL}/display`);
 }
 
