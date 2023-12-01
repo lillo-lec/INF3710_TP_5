@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, Subject, catchError, of } from "rxjs";
 import { Message } from "/Users/lillo/Desktop/INF3710_TP_5/common/communication/message";
-import { Medecin } from "/Users/lillo/Desktop/INF3710_TP_5/common/medecin";
+import { Medecin } from "../../../../common/interfaces/medecin";
 
 @Injectable()
 export class CommunicationService {

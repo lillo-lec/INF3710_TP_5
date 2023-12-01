@@ -22,7 +22,7 @@ export class DatabaseController {
 
   // private initializeRoutes() {
   //     // this.router.get('/', async (_req: Request, res: Response) => {
-  //     //   const listeMedecins: Medecin[] = [
+  //     //   const listeMedecins = [
   //     //     {
   //     //       idMedecin: 3,
   //     //       prenom: "Bob",

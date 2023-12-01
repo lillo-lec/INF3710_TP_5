@@ -2,7 +2,7 @@ import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CommunicationService } from "../services/communication.service";
-import { Medecin } from "../../../../common/medecin";
+import { Medecin } from "../../../../common/interfaces/medecin";
 
 @Component({
   selector: 'app-app.display-page',

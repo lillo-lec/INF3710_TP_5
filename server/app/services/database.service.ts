@@ -1,7 +1,7 @@
 import { injectable } from "inversify";
 import * as pg from "pg";
 import "reflect-metadata";
-import { Medecin } from "/Users/lillo/Desktop/INF3710_TP_5/common/medecin";
+import { Medecin } from "../interfaces/medecin";
 
 @injectable()
 export class DatabaseService {
