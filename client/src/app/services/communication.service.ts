@@ -27,13 +27,16 @@ export class CommunicationService {
     result?: T
   ): (error: Error) => Observable<T> {
     return (error: Error): Observable<T> => {
+      console.error(`Erreur lors de la requête ${request}:`, error);
       return of(result as T);
     };
   }
 
   
 getAllMedecin(): Observable<Medecin[]> {
-  return this.http.get<Medecin[]>(`${this.BASE_URL}/display`);
+  return this.http.get<Medecin[]>(`${this.BASE_URL}/display`).pipe(
+    catchError(this.handleError<Medecin[]>("getAllMedecin", []))
+  );
 }
 
 insertMedecin(medecin: Medecin): Observable<Message> {
