@@ -42,7 +42,7 @@ let DatabaseService = class DatabaseService {
     addMedecin(medecin) {
         return __awaiter(this, void 0, void 0, function* () {
             const client = yield this.pool.connect();
-            const query = 'INSERT INTO hopital_bd.Medecins VALUES($1, $2, $3, $4, $5, $6)';
+            const query = 'INSERT INTO Medecins VALUES($1, $2, $3, $4, $5, $6)';
             const values = [medecin.idMedecin, medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
             const res = yield client.query(query, values);
             client.release();
@@ -52,7 +52,7 @@ let DatabaseService = class DatabaseService {
     modifyMedecin(medecin) {
         return __awaiter(this, void 0, void 0, function* () {
             const client = yield this.pool.connect();
-            const query = `UPTATE hopital_bd.Medecins
+            const query = `UPTATE Medecins
                    SET prenom = $1, nom = $2, specialite = $3, anneesExperience = $4, idService = $5 
                    WHERE idMedecin='${medecin.idMedecin}'`;
             const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
@@ -64,7 +64,7 @@ let DatabaseService = class DatabaseService {
     deleteMedecin(idMedecin) {
         return __awaiter(this, void 0, void 0, function* () {
             const client = yield this.pool.connect();
-            const query = `DELETE FROM hopital_bd.Medecins WHERE idMedecin='${idMedecin}'`;
+            const query = `DELETE FROM Medecins WHERE idMedecin='${idMedecin}'`;
             const res = yield client.query(query);
             client.release();
             return res;

@@ -25,7 +25,7 @@ export class DatabaseService {
 
   public async addMedecin(medecin: Medecin): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = 'INSERT INTO hopital_bd.Medecins VALUES($1, $2, $3, $4, $5, $6)';
+    const query = 'INSERT INTO Medecins VALUES($1, $2, $3, $4, $5, $6)';
     const values = [medecin.idMedecin, medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
     const res = await client.query(query, values);
     client.release()
@@ -34,7 +34,7 @@ export class DatabaseService {
 
   public async modifyMedecin(medecin: Medecin): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = `UPTATE hopital_bd.Medecins
+    const query = `UPTATE Medecins
                    SET prenom = $1, nom = $2, specialite = $3, anneesExperience = $4, idService = $5 
                    WHERE idMedecin='${medecin.idMedecin}'`;
     const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
@@ -45,7 +45,7 @@ export class DatabaseService {
 
   public async deleteMedecin(idMedecin: number): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = `DELETE FROM hopital_bd.Medecins WHERE idMedecin='${idMedecin}'`;
+    const query = `DELETE FROM Medecins WHERE idMedecin='${idMedecin}'`;
     const res = await client.query(query);
     client.release()
     return res;
