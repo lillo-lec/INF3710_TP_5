@@ -1,6 +1,7 @@
 import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Medecin } from "../../../../common/interfaces/medecin";
 
 @Component({
   selector: 'app-app.insert-page',
@@ -9,6 +10,14 @@ import { Router } from "@angular/router";
 })
 export class AppInsertPageComponent implements OnInit {
   public route: string;
+  medecin: Medecin = {
+    idMedecin: 0,
+    prenom: '',
+    nom: '',
+    specialite: '',
+    anneesExperience: 0,
+    idService: 0
+  };
 
   public constructor(location: Location, router: Router) {
       router.events.subscribe((_val: any) => {

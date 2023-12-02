@@ -36,8 +36,8 @@ export class DatabaseService {
     const client = await this.pool.connect();
     const query = `UPTATE Medecins
                    SET prenom = $1, nom = $2, specialite = $3, anneesExperience = $4, idService = $5 
-                   WHERE idMedecin='${medecin.idMedecin}'`;
-    const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
+                   WHERE idMedecin= $6`;
+    const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService, medecin.idMedecin];
     const res = await client.query(query, values);
     client.release()
     return res;

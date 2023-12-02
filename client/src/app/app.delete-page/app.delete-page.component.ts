@@ -28,28 +28,37 @@ export class AppDeletePageComponent implements OnInit {
           if (medecins) {
             console.log(medecins);
             this.medecins = medecins;
+
+            this.activatedRoute.params.subscribe((params) => {
+              this.medecinId = Number(params['id']);
+              console.log("ID :"+ this.medecinId);
+            });
+
+                if(!(this.medecinId === -1)) {
+        
+                console.log("ds FOR");
+                  for (let i = 0; i < this.medecins.length; i++) {
+                    if (this.medecinId == this.medecins[i].idMedecin) {
+                      this.medecinIndex = i;
+                    }
+                  }
+                }
+              
+              console.log(this.medecinIndex);
           }
         });
+        
+
   }
 
   public readonly title: string = "INF3710 TP4";
 
-  public ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      this.medecinId = Number(params['id']);
-      console.log(this.medecinId);
-        if(this.medecins && this.medecinId !== -1) {
-          for (let i = 0; i < this.medecins.length; i++) {
-            if (this.medecinId == this.medecins[i].idmedecin) {
-              this.medecinIndex = i;
-            }
-          }
-        }
-      });
-  }
+  public ngOnInit(): void {}
 
   supprimerMedecin(){
-    this.communicationService.deleteMedecin(this.medecins[this.medecinId].idmedecin).subscribe(() => {});
+    if (!(this.medecinId === -1) && this.medecins) {
+      this.communicationService.deleteMedecin(this.medecinId).subscribe(() => {});
+    }
   }
 
 }

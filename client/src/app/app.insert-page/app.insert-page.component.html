@@ -1,8 +1,41 @@
-<div>
-    <div class="home">
-      <p>
-        Ajouter:
-      </p>
-    </div>
+<div class="home">
+  <div class="medecin-list">
+    <h2>Veuillez entrer les informations du nouveau médecin!</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Spécialité</th>
+          <th>Années d'expérience</th>
+          <th>ID du Service</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <form #medecinForm="ngForm">
+          <table>
+            <tr>
+              <td><input type="text" id="idMedecin" name="idMedecin" [(ngModel)]="medecin.idMedecin" disabled></td>
+            
+              <td><input type="text" id="prenom" name="prenom" [(ngModel)]="medecin.prenom"></td>
+            
+              <td><input type="text" id="nom" name="nom" [(ngModel)]="medecin.nom"></td>
+
+              <td><input type="text" id="specialite" name="specialite" [(ngModel)]="medecin.specialite"></td>
+
+              <td><input type="text" id="anneesExperience" name="anneesExperience" [(ngModel)]="medecin.anneesExperience"></td>
+
+              <td><label for="idService">ID du Service</label></td>
+              <td><input type="text" id="idService" name="idService" [(ngModel)]="medecin.idService"></td>
+            </tr>
+          </table>
+          <button type="submit">Enregistrer</button>
+        </form>
+      </tbody>
+    </table>
   </div>
-  
+</div>

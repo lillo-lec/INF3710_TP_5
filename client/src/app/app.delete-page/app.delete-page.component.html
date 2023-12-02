@@ -1,6 +1,7 @@
 <div class="home">
   <div class="medecin-list">
-    <h2>Êtes-vous certain de vouloir supprimer ce Médecin?</h2>
+    <h2 *ngIf="!(this.medecinId === -1)">Êtes-vous certain de vouloir supprimer ce Médecin?</h2>
+    <h2 *ngIf="this.medecinId === -1">Quel médecin désirez-vous supprimer??</h2>
     <table>
       <thead>
         <tr>
@@ -11,22 +12,22 @@
           <th>Années d'expérience</th>
           <th>ID du Service</th>
           <th></th>
-          <th></th>
+          <th *ngIf="!(medecinId === -1)"></th>
 
         </tr>
       </thead>
-      <!-- <tbody *ngIf="medecinId !== -1">
+      <tbody *ngIf="!(medecinId === -1)">
         <tr>
-          <td>{{ medecins[mdecinIndex].idMedecin }}</td>
-          <td>{{ medecins[mdecinIndex].prenom }}</td>
-          <td>{{ medecins[mdecinIndex].nom }}</td>
-          <td>{{ medecins[mdecinIndex].specialite }}</td>
-          <td>{{ medecins[mdecinIndex].anneesExperience }}</td>
-          <td>{{ medecins[mdecinIndex].idService }}</td>
-          <td><button type="button" class="suppress" (click)="supprimerMedecin()">Supprimer</button></td>
-          <td><button type="button" class="keep" routerLink="/display">Garder</button></td>
+          <td>{{ medecins[medecinIndex].idMedecin }}</td>
+          <td>{{ medecins[medecinIndex].prenom }}</td>
+          <td>{{ medecins[medecinIndex].nom }}</td>
+          <td>{{ medecins[medecinIndex].specialite }}</td>
+          <td>{{ medecins[medecinIndex].anneesExperience }}</td>
+          <td>{{ medecins[medecinIndex].idService }}</td>
+          <td><button type="button" class="suppress" routerLink="/" (click)="supprimerMedecin()">Supprimer!</button></td>
+          <td><button type="button" class="keep" routerLink="/">Garder</button></td>
         </tr>
-      </tbody> -->
+      </tbody>
       <tbody *ngIf="medecinId === -1">
         <tr *ngFor="let medecin of medecins">
           <td>{{ medecin.idMedecin }}</td>
