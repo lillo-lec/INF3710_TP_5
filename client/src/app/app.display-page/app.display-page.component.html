@@ -10,6 +10,8 @@
           <th>Spécialité</th>
           <th>Années d'expérience</th>
           <th>ID du Service</th>
+          <th> </th>
+          <th> </th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +22,8 @@
           <td>{{ medecin.specialite }}</td>
           <td>{{ medecin.anneesExperience }}</td>
           <td>{{ medecin.idService }}</td>
+          <td><button type="button" class="btn btn-primary" class="modif" [routerLink]="['/modify', medecin.idMedecin]">Modifier</button></td>
+          <td><button type="button" class="btn btn-primary" class="suppress" [routerLink]="['/delete', medecin.idMedecin]">Supprimer</button></td>
         </tr>
       </tbody>
     </table>

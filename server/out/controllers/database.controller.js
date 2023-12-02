@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseController = void 0;
 const express_1 = require("express");
+const http_status_codes_1 = require("http-status-codes");
 //import express = require("express");
 const inversify_1 = require("inversify");
 // import { DatabaseService } from "../services/database.service";
@@ -57,6 +58,12 @@ let DatabaseController = class DatabaseController {
         //     const medecins = await this.dataBaseService.getAllMedecin();
         //     res.status(StatusCodes.OK).json(medecins);
         // });
+        this.router.delete('/delete/:idMedecin', (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const idMedecin = Number(req.params.idMedecin);
+            // await this.dataBaseService.deleteMedecin(idMedecin);
+            console.log("test reception:" + idMedecin);
+            res.status(http_status_codes_1.StatusCodes.ACCEPTED).send();
+        }));
         // this.router.post('/insert', async (req: Request, res: Response) => {
         //     const medecin = req.body;
         //     this.dataBaseService.addMedecin(medecin);
@@ -67,11 +74,6 @@ let DatabaseController = class DatabaseController {
         //     const message = await this.dataBaseService.modifyMedecin(medecin);
         //     res.status(StatusCodes.CREATED).json(message);
         //   });
-        //   this.router.delete('/delete/:idMedecin', async (req: Request, res: Response) => {
-        //     const idMedecin = Number(req.params.idMedecin);
-        //     await this.dataBaseService.deleteMedecin(idMedecin);
-        //     res.status(StatusCodes.ACCEPTED).send();
-        // });
     }
 };
 DatabaseController = __decorate([

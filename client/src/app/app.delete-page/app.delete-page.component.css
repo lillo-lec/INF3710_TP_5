@@ -1,40 +1,88 @@
 .title {
-    color: rgba(154, 117, 240, 1);
-    font-family: 'Roboto', sans-serif;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  
-  .home {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content:center;
-    width: 80%;
-    margin-left: 10.5%;
-    font-family: 'Roboto', sans-serif;
-    line-height: normal;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 60px;
-    text-align: center;
-    background: rgba(154, 117, 240, 0.4);
-    padding-top: 2%;
-    padding-bottom: 2%;
-  }
-  
-  .btn {
-    margin-top: 1%;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    padding: 10px;
-  }
-  
-  .main-nav {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    padding: 1%;
-  }
-  
+  color: rgba(154, 117, 240, 1);
+  font-family: 'Roboto', sans-serif;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.home {
+display: flex;
+flex-direction: column;
+align-content: center;
+align-items: center;
+justify-content:center;
+width: 80%;
+margin-left: 10.5%;
+font-family: 'Roboto', sans-serif;
+line-height: normal;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-size: 60px;
+text-align: center;
+background: rgba(120, 91, 187, 0.186);
+padding-top: 2%;
+padding-bottom: 2%;
+}
+
+.btn {
+margin-top: 1%;
+font-size: 20px;
+font-family: 'Roboto', sans-serif;
+padding: 10px;
+}
+
+.main-nav {
+font-family: 'Roboto', sans-serif;
+font-size: 18px;
+padding: 1%;
+}
+
+.medecin-list {
+margin: 20px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+font-size: 20px;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #f2f2f2;
+}
+
+td {
+background-color: #add8e6;
+}
+
+.btn {
+  margin-top: 1%;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: rgb(6, 0, 18);
+}
+
+.keep {
+  background-color: #003f09b4;
+}
+
+.suppress {
+  background-color: rgba(128, 0, 32, 0.684);
+}

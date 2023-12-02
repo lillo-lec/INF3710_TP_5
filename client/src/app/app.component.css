@@ -37,3 +37,10 @@
   font-size: 18px;
   padding: 1%;
 }
+.nav-item.nav-link.active {
+  background-color: #edededdb;
+}
+.nav-item.nav-link {
+  color: rgba(154, 117, 240, 1);
+}
+

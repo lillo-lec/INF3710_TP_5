@@ -1,4 +1,5 @@
 import { Router,Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 //import express = require("express");
 import { injectable } from "inversify";
 // import { DatabaseService } from "../services/database.service";
@@ -14,6 +15,8 @@ export class DatabaseController {
   ) {
     this.router = Router();
 
+    
+    // À Commenter pour tester avec base de données 
     this.router.get('/display', async (_req: Request, res: Response) => {
       console.log("test")
       const listeMedecins = [
@@ -37,10 +40,21 @@ export class DatabaseController {
     res.json(listeMedecins);
 });
 
+    // À Décommenter pour tester avec base de données 
 //   this.router.get('/display', async (req: Request, res: Response) => {
 //     const medecins = await this.dataBaseService.getAllMedecin();
 //     res.status(StatusCodes.OK).json(medecins);
 // });
+
+  this.router.delete('/delete/:idMedecin', async (req: Request, res: Response) => {
+    const idMedecin = Number(req.params.idMedecin);
+    // À Décommenter pour tester avec base de données 
+    // await this.dataBaseService.deleteMedecin(idMedecin);
+    console.log("test reception:" + idMedecin);
+    res.status(StatusCodes.OK).send();
+});
+
+    // À tester plus tard:
 
 // this.router.post('/insert', async (req: Request, res: Response) => {
 //     const medecin = req.body;
@@ -56,10 +70,6 @@ export class DatabaseController {
 //   });
 
   
-//   this.router.delete('/delete/:idMedecin', async (req: Request, res: Response) => {
-//     const idMedecin = Number(req.params.idMedecin);
-//     await this.dataBaseService.deleteMedecin(idMedecin);
-//     res.status(StatusCodes.ACCEPTED).send();
-// });
+
 }
 }

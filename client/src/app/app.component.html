@@ -3,9 +3,9 @@
     <a class="navbar-brand title" href="/" matTooltip="Retournez à l'accueil">INF3710 - TP4</a>
     <div class="navbar-expand mr-auto">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="/insert">Ajouter</a>
-        <a class="nav-item nav-link active" routerLink="/modify">Modifier</a>
-        <a class="nav-item nav-link active" routerLink="/delete">Supprimer</a>
+        <a class="nav-item nav-link" routerLink="/insert" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ajouter</a>
+        <a class="nav-item nav-link" routerLink="/modify/-1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Modifier</a>
+        <a class="nav-item nav-link" routerLink="/delete/-1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Supprimer</a>
       </div>
     </div>
   </nav>

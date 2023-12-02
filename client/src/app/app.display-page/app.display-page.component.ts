@@ -49,4 +49,5 @@ export class AppDisplayPageComponent implements OnInit {
 
   public readonly title: string = "Accueil";
   public ngOnInit(): void {}
+
 }

@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: "app", component: AppComponent },
   { path: "display", component: AppDisplayPageComponent },
   { path: "insert", component: AppInsertPageComponent },
-  { path: "modify", component: AppModifyPageComponent },
-  { path: "delete", component: AppDeletePageComponent }
+  { path: "modify/:id", component: AppModifyPageComponent },
+  { path: "delete/:id", component: AppDeletePageComponent }
 
 ];
 
