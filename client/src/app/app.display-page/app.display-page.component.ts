@@ -42,10 +42,11 @@ export class AppDisplayPageComponent implements OnInit {
         if (medecins) {
           console.log(medecins);
           this.medecins = medecins;
+          console.log(this.medecins);
         }
       });
   }
 
-  public readonly title: string = "INF3710 TP4";
+  public readonly title: string = "Accueil";
   public ngOnInit(): void {}
 }

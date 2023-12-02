@@ -1,6 +1,6 @@
 <div class="home">
   <div class="medecin-list">
-    <h2>Liste des Médecins</h2>
+    <h2>Voici la liste des médecin:</h2>
     <table>
       <thead>
         <tr>
@@ -13,13 +13,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{{ medecins[0].idMedecin }}</td>
-          <td>{{ medecins[0].prenom }}</td>
-          <td>{{ medecins[0].nom }}</td>
-          <td>{{ medecins[0].specialite }}</td>
-          <td>{{ medecins[0].anneesExperience }}</td>
-          <td>{{ medecins[0].idService }}</td>
+        <tr *ngFor="let medecin of medecins">
+          <td>{{ medecin.idMedecin }}</td>
+          <td>{{ medecin.prenom }}</td>
+          <td>{{ medecin.nom }}</td>
+          <td>{{ medecin.specialite }}</td>
+          <td>{{ medecin.anneesExperience }}</td>
+          <td>{{ medecin.idService }}</td>
         </tr>
       </tbody>
     </table>
