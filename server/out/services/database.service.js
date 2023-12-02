@@ -24,8 +24,8 @@ let DatabaseService = class DatabaseService {
         this.connectionConfig = {
             user: "postgres",
             database: "hopital_bd",
-            password: "root",
-            port: 5432,
+            password: "postgres2001",
+            port: 5433,
             host: "127.0.0.1",
             keepAlive: true
         };
@@ -34,7 +34,7 @@ let DatabaseService = class DatabaseService {
     getAllMedecin() {
         return __awaiter(this, void 0, void 0, function* () {
             const client = yield this.pool.connect();
-            const res = yield client.query("SELECT * FROM hopital_bd.Medecins;");
+            const res = yield client.query("SELECT * FROM Medecins;");
             client.release();
             return res;
         });

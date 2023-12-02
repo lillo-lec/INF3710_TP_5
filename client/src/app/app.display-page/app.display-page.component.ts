@@ -13,41 +13,39 @@ export class AppDisplayPageComponent implements OnInit {
   public route: string;
   public medecins: Medecin[] = [
     {
-      idMedecin: 0,
+      idmedecin: 0,
       prenom: "wrong",
       nom: "wrong",
       specialite: "wrong",
-      anneesExperience: 0,
-      idService: 0
+      anneesexperience: 0,
+      idservice: 0
     },
     {
-      idMedecin: 0,
+      idmedecin: 0,
       prenom: "wrong",
       nom: "wrong",
       specialite: "wrong",
-      anneesExperience: 6,
-      idService: 0
+      anneesexperience: 6,
+      idservice: 0
     }
-  ];;
+  ];
+  public readonly title: string = "Accueil";
 
-  public constructor(location: Location, router: Router, public communicationService: CommunicationService) {
-      router.events.subscribe((_val: any) => {
-          if (location.path() !== "") {
-            this.route = location.path();
-          } else {
-            this.route = "";
-          }
-      });
-      this.communicationService.getAllMedecin().subscribe((medecins) => {
-        if (medecins) {
-          console.log(medecins);
-          this.medecins = medecins;
-          console.log(this.medecins);
-        }
-      });
+  public constructor(public location: Location, public router: Router, public communicationService: CommunicationService) {
   }
 
-  public readonly title: string = "Accueil";
-  public ngOnInit(): void {}
-
+  public ngOnInit(): void {
+    this.router.events.subscribe((_val: any) => {
+      if (this.location.path() !== "") {
+        this.route = this.location.path();
+      } else {
+        this.route = "";
+      }
+  });
+  this.communicationService.getAllMedecin().subscribe((medecins: any) => {
+    if (medecins) {
+      this.medecins = medecins.rows;
+    }
+  });
+  }
 }

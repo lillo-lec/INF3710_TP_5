@@ -1,8 +1,8 @@
 export interface Medecin {
-    idMedecin: number;
+    idmedecin: number;
     prenom: string;
     nom: string;
     specialite: string;
-    anneesExperience: number; 
-    idService: number
+    anneesexperience: number; 
+    idservice: number
 }

@@ -8,8 +8,8 @@ export class DatabaseService {
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
     database: "hopital_bd",
-    password: "root",
-    port: 5432,          // Attention ! Peut aussi être 5433 pour certains utilisateurs
+    password: "postgres2001",
+    port: 5433,          // Attention ! Peut aussi être 5433 pour certains utilisateurs
     host: "127.0.0.1",
     keepAlive: true
   };
@@ -18,7 +18,7 @@ export class DatabaseService {
 
   public async getAllMedecin(): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const res = await client.query("SELECT * FROM hopital_bd.Medecins;");
+    const res = await client.query("SELECT * FROM Medecins;");
     client.release()
     return res;
   }

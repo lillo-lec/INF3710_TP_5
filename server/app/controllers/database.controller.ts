@@ -1,22 +1,23 @@
-import { Router,Request, Response } from "express";
+import { Router, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-//import express = require("express");
-import { injectable } from "inversify";
-// import { DatabaseService } from "../services/database.service";
-// import Types from "../types";
+import { injectable, inject } from "inversify";
+import { DatabaseService } from "../services/database.service";
+import Types from "../types";
 // import { Medecin } from "../../../common/medecin";
+// import express = require("express");
 
 @injectable()
 export class DatabaseController {
   public router: Router;
   public constructor(
     // @ts-ignore -- À ENLEVER LORSQUE L'IMPLÉMENTATION EST TERMINÉE
-    // @inject(Types.DatabaseService) private readonly dataBaseService: DatabaseService
+    @inject(Types.DatabaseService) private readonly dataBaseService: DatabaseService
   ) {
     this.router = Router();
 
     
     // À Commenter pour tester avec base de données 
+    /*
     this.router.get('/display', async (_req: Request, res: Response) => {
       console.log("test")
       const listeMedecins = [
@@ -39,17 +40,18 @@ export class DatabaseController {
       ];
     res.json(listeMedecins);
 });
+*/
 
-    // À Décommenter pour tester avec base de données 
-//   this.router.get('/display', async (req: Request, res: Response) => {
-//     const medecins = await this.dataBaseService.getAllMedecin();
-//     res.status(StatusCodes.OK).json(medecins);
-// });
+    // À Décommenter pour tester avec base de données
+  this.router.get('/display', async (req: Request, res: Response) => {
+    const medecins = await this.dataBaseService.getAllMedecin();
+    res.status(StatusCodes.OK).json(medecins);
+  });
 
   this.router.delete('/delete/:idMedecin', async (req: Request, res: Response) => {
     const idMedecin = Number(req.params.idMedecin);
-    // À Décommenter pour tester avec base de données 
-    // await this.dataBaseService.deleteMedecin(idMedecin);
+    // À Décommenter pour tester avec base de données
+    await this.dataBaseService.deleteMedecin(idMedecin);
     console.log("test reception:" + idMedecin);
     res.status(StatusCodes.OK).send();
 });

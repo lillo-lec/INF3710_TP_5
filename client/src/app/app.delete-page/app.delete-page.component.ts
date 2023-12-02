@@ -14,7 +14,7 @@ export class AppDeletePageComponent implements OnInit {
   public route: string;
   public medecins: Medecin[];
   public medecinId: number;
-  public mdecinIndex: number;
+  public medecinIndex: number;
 
   public constructor(location: Location, router: Router, public communicationService: CommunicationService, public activatedRoute: ActivatedRoute,) {
       router.events.subscribe((_val: any) => {
@@ -40,8 +40,8 @@ export class AppDeletePageComponent implements OnInit {
       console.log(this.medecinId);
         if(this.medecins && this.medecinId !== -1) {
           for (let i = 0; i < this.medecins.length; i++) {
-            if (this.medecinId == this.medecins[i].idMedecin) {
-              this.mdecinIndex = i;
+            if (this.medecinId == this.medecins[i].idmedecin) {
+              this.medecinIndex = i;
             }
           }
         }
@@ -49,7 +49,7 @@ export class AppDeletePageComponent implements OnInit {
   }
 
   supprimerMedecin(){
-    this.communicationService.deleteMedecin(this.medecins[this.medecinId].idMedecin).subscribe(() => {});
+    this.communicationService.deleteMedecin(this.medecins[this.medecinId].idmedecin).subscribe(() => {});
   }
 
 }
