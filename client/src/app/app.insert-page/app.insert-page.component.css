@@ -79,10 +79,10 @@ background-color: #add8e6;
   background-color: rgb(6, 0, 18);
 }
 
-.keep {
+.save {
   background-color: #003f09b4;
 }
 
-.suppress {
+.cancel {
   background-color: rgba(128, 0, 32, 0.684);
 }

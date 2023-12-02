@@ -1,7 +1,8 @@
 import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Medecin } from "../../../../common/interfaces/medecin";
+import { CommunicationService } from "../services/communication.service";
 
 @Component({
   selector: 'app-app.insert-page',
@@ -10,16 +11,17 @@ import { Medecin } from "../../../../common/interfaces/medecin";
 })
 export class AppInsertPageComponent implements OnInit {
   public route: string;
+  public medecins: Medecin[];
   medecin: Medecin = {
-    idMedecin: 0,
+    idmedecin: -1,
     prenom: '',
     nom: '',
     specialite: '',
-    anneesExperience: 0,
-    idService: 0
+    anneesexperience: 0,
+    idservice: 0
   };
 
-  public constructor(location: Location, router: Router) {
+  public constructor(location: Location, router: Router,  public communicationService: CommunicationService, public activatedRoute: ActivatedRoute,) {
       router.events.subscribe((_val: any) => {
           if (location.path() !== "") {
             this.route = location.path();
@@ -27,8 +29,19 @@ export class AppInsertPageComponent implements OnInit {
             this.route = "";
           }
         });
+
+        this.communicationService.getAllMedecin().subscribe((medecins) => {
+          if (medecins) {
+            console.log(medecins);
+            this.medecins = medecins;
+          }
+        });
   }
 
   public readonly title: string = "INF3710 TP4";
   public ngOnInit(): void { }
+
+  ajouterMedecin() {
+    this.communicationService.insertMedecin(this.medecin);
+  }
 }

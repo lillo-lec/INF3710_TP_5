@@ -19,7 +19,7 @@
         <form #medecinForm="ngForm">
           <table>
             <tr>
-              <td><input type="text" id="idMedecin" name="idMedecin" [(ngModel)]="medecin.idMedecin" disabled></td>
+              <td><input type="text" id="idMedecin" name="idMedecin" [(ngModel)]="medecin.idmedecin" disabled></td>
             
               <td><input type="text" id="prenom" name="prenom" [(ngModel)]="medecin.prenom"></td>
             
@@ -27,13 +27,17 @@
 
               <td><input type="text" id="specialite" name="specialite" [(ngModel)]="medecin.specialite"></td>
 
-              <td><input type="text" id="anneesExperience" name="anneesExperience" [(ngModel)]="medecin.anneesExperience"></td>
+              <td><input type="text" id="anneesExperience" name="anneesExperience" [(ngModel)]="medecin.anneesexperience"></td>
 
               <td><label for="idService">ID du Service</label></td>
-              <td><input type="text" id="idService" name="idService" [(ngModel)]="medecin.idService"></td>
+              <td><input type="text" id="idService" name="idService" [(ngModel)]="medecin.idservice"></td>
+
+              <td><button type="button" class="btn btn-primary" class="save" routerLink="/" (click)="ajouterMedecin()">Ajouter</button></td>
+
+              <td><button type="button" class="btn btn-primary" class="cancel" routerLink="/">Annuler</button></td>
+
             </tr>
           </table>
-          <button type="submit">Enregistrer</button>
         </form>
       </tbody>
     </table>

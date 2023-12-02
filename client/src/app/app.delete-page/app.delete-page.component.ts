@@ -38,7 +38,7 @@ export class AppDeletePageComponent implements OnInit {
         
                 console.log("ds FOR");
                   for (let i = 0; i < this.medecins.length; i++) {
-                    if (this.medecinId == this.medecins[i].idMedecin) {
+                    if (this.medecinId == this.medecins[i].idmedecin) {
                       this.medecinIndex = i;
                     }
                   }
