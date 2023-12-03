@@ -41,11 +41,11 @@ export class AppDisplayPageComponent implements OnInit {
       } else {
         this.route = "";
       }
-  });
-  this.communicationService.getAllMedecin().subscribe((medecins: any) => {
-    if (medecins) {
-      this.medecins = medecins.rows;
-    }
-  });
+    });
+    this.communicationService.getAllMedecin().subscribe((medecins: any) => {
+      if (medecins) {
+        this.medecins = medecins.rows;
+      }
+    });
   }
 }

@@ -10,34 +10,20 @@
           <th>Spécialité</th>
           <th>Années d'expérience</th>
           <th>ID du Service</th>
-          <th></th>
-          <th></th>
-
         </tr>
       </thead>
-      <!-- <tbody *ngIf="medecinId !== -1">
+      <tbody>
         <tr>
-          <td>{{ medecins[mdecinIndex].idMedecin }}</td>
-          <td>{{ medecins[mdecinIndex].prenom }}</td>
-          <td>{{ medecins[mdecinIndex].nom }}</td>
-          <td>{{ medecins[mdecinIndex].specialite }}</td>
-          <td>{{ medecins[mdecinIndex].anneesExperience }}</td>
-          <td>{{ medecins[mdecinIndex].idService }}</td>
-          <td><button type="button" class="suppress" (click)="supprimerMedecin()">Supprimer</button></td>
-          <td><button type="button" class="keep" routerLink="/display">Garder</button></td>
-        </tr>
-      </tbody> -->
-      <tbody *ngIf="medecinId === -1">
-        <tr *ngFor="let medecin of medecins">
-          <td>{{ medecin.idMedecin }}</td>
+          <td>{{ medecin.idmedecin }}</td>
           <td>{{ medecin.prenom }}</td>
           <td>{{ medecin.nom }}</td>
           <td>{{ medecin.specialite }}</td>
-          <td>{{ medecin.anneesExperience }}</td>
-          <td>{{ medecin.idService }}</td>
-          <td><button type="button" class="btn btn-primary" class="suppress" [routerLink]="['/delete', medecin.idMedecin]">Supprimer</button></td>
+          <td>{{ medecin.anneesexperience }}</td>
+          <td>{{ medecin.idservice }}</td>
         </tr>
       </tbody>
     </table>
+    <button type="button" class="btn btn-primary suppress" (click)="supprimerMedecin()" [routerLink]="'/display'">Supprimer</button>
+    <button type="button" class="btn btn-primary return" [routerLink]="'/display'">Retour à la liste des médecins</button>
   </div>
 </div>

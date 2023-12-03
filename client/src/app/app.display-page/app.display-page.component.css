@@ -39,7 +39,13 @@ padding: 1%;
 }
 
 .medecin-list {
-margin: 20px;
+  margin-top: 40px;
+  height: 80%;
+}
+
+#medecins-table {
+  overflow-y: scroll;
+  height: 40vh;
 }
 
 table {

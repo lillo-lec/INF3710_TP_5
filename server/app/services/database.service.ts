@@ -9,7 +9,7 @@ export class DatabaseService {
     user: "postgres",
     database: "hopital_bd",
     password: "postgres2001",
-    port: 5433,          // Attention ! Peut aussi être 5433 pour certains utilisateurs
+    port: 5433,      
     host: "127.0.0.1",
     keepAlive: true
   };
@@ -25,27 +25,26 @@ export class DatabaseService {
 
   public async addMedecin(medecin: Medecin): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = 'INSERT INTO Medecins VALUES($1, $2, $3, $4, $5, $6)';
-    const values = [medecin.idMedecin, medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
-    const res = await client.query(query, values);
+    const query = `INSERT INTO Medecins(idMedecin, prenom, nom, specialite, anneesExperience, idService)
+                   VALUES(${medecin.idmedecin}, '${medecin.prenom}', '${medecin.nom}', '${medecin.specialite}', ${medecin.anneesexperience}, ${medecin.idservice})`;
+    const res = await client.query(query);
     client.release()
     return res;
   }
 
   public async modifyMedecin(medecin: Medecin): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = `UPTATE Medecins
-                   SET prenom = $1, nom = $2, specialite = $3, anneesExperience = $4, idService = $5 
-                   WHERE idMedecin='${medecin.idMedecin}'`;
-    const values = [medecin.prenom, medecin.nom, medecin.specialite, medecin.anneesExperience, medecin.idService];
-    const res = await client.query(query, values);
+    const query = `UPDATE Medecins
+                   SET prenom = '${medecin.prenom}', nom = '${medecin.nom}', specialite = '${medecin.specialite}', anneesExperience = ${medecin.anneesexperience}, idService = ${medecin.idservice} 
+                   WHERE idMedecin=${medecin.idmedecin}`;
+    const res = await client.query(query);
     client.release()
     return res;
   }
 
   public async deleteMedecin(idMedecin: number): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
-    const query = `DELETE FROM Medecins WHERE idMedecin='${idMedecin}'`;
+    const query = `DELETE FROM Medecins WHERE idMedecin=${idMedecin}`;
     const res = await client.query(query);
     client.release()
     return res;

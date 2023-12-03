@@ -1,8 +1,44 @@
 <div>
     <div class="home">
-      <p>
-        Ajouter:
-      </p>
+      <p>Ajouter un médecin :</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Spécialité</th>
+            <th>Années d'expérience</th>
+            <th>ID du Service</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{ medecin.idmedecin }}</td>
+            <td><input type="text" id="prenom" [(ngModel)]="medecin.prenom" /></td>
+            <td><input type="text" id="nom" [(ngModel)]="medecin.nom" /></td>
+            <td><input type="text" id="specialite" [(ngModel)]="medecin.specialite"/></td>
+            <td><input type="text" id="anneesexperience" [(ngModel)]="medecin.anneesexperience" /></td>
+            <td>
+              <select id="idservice" [(ngModel)]="idService">
+                <option selected>0 (Dermatologie)</option>
+                <option>1 (Neurologie)</option>
+                <option>2 (Ophtalmologie)</option>
+                <option>3 (Orthopédie)</option>
+                <option>4 (Psychiatrie)</option>
+                <option>5 (Cardiologie)</option>
+                <option>6 (Pédiatrie)</option>
+                <option>7 (Chirurgie)</option>
+                <option>8 (Gynécologie)</option>
+                <option>9 (Radiologie)</option>
+            </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary insert" (click)="insertMedecin()" [routerLink]="'/display'">Ajouter</button>
+      <button type="button" class="btn btn-primary return" [routerLink]="'/display'">Retour à la liste des médecins</button>
     </div>
   </div>
   

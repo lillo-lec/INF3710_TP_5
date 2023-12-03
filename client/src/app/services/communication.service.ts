@@ -9,6 +9,7 @@ import { Medecin } from "../../../../common/interfaces/medecin";
 export class CommunicationService {
   // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private readonly BASE_URL: string = "http://localhost:3000/database";
+  public medecinId: number = -1;
   public constructor(private readonly http: HttpClient) {}
 
   private _listeners: any = new Subject<any>();
@@ -32,7 +33,9 @@ export class CommunicationService {
     };
   }
 
-  
+setMedecinId(medecinId: number): void {
+  this.medecinId = medecinId;
+}
 getAllMedecin(): Observable<Medecin[]> {
   return this.http.get<Medecin[]>(`${this.BASE_URL}/display`).pipe(
     catchError(this.handleError<Medecin[]>("getAllMedecin", []))
@@ -47,7 +50,7 @@ insertMedecin(medecin: Medecin): Observable<Message> {
 
 modifyMedecin(medecin: Medecin): Observable<Message> {
   return this.http
-      .put<Message>(`${this.BASE_URL}/modify`, medecin)
+      .put<Message>(`${this.BASE_URL}/modify/${medecin.idmedecin}`, medecin)
       .pipe(catchError(this.handleError<Message>('modifyMedecin')));
 }
 

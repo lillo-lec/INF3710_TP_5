@@ -1,31 +1,33 @@
 <div class="home">
   <div class="medecin-list">
     <h2>Voici la liste des médecin:</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Prénom</th>
-          <th>Nom</th>
-          <th>Spécialité</th>
-          <th>Années d'expérience</th>
-          <th>ID du Service</th>
-          <th> </th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let medecin of medecins">
-          <td>{{ medecin.idmedecin }}</td>
-          <td>{{ medecin.prenom }}</td>
-          <td>{{ medecin.nom }}</td>
-          <td>{{ medecin.specialite }}</td>
-          <td>{{ medecin.anneesexperience }}</td>
-          <td>{{ medecin.idservice }}</td>
-          <td><button type="button" class="btn btn-primary" class="modif" [routerLink]="['/modify', medecin.idMedecin]">Modifier</button></td>
-          <td><button type="button" class="btn btn-primary" class="suppress" [routerLink]="['/delete', medecin.idMedecin]">Supprimer</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="medecins-table">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Spécialité</th>
+            <th>Années d'expérience</th>
+            <th>ID du Service</th>
+            <th> </th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medecin of medecins">
+            <td>{{ medecin.idmedecin }}</td>
+            <td>{{ medecin.prenom }}</td>
+            <td>{{ medecin.nom }}</td>
+            <td>{{ medecin.specialite }}</td>
+            <td>{{ medecin.anneesexperience }}</td>
+            <td>{{ medecin.idservice }}</td>
+            <td><button type="button" class="btn btn-primary modif" (click)="communicationService.setMedecinId(medecin.idmedecin)" [routerLink]="'/modify/medecin.idmedecin'">Modifier</button></td>
+            <td><button type="button" class="btn btn-primary suppress" (click)="communicationService.setMedecinId(medecin.idmedecin)" [routerLink]="['/delete', medecin.idmedecin]">Supprimer</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
