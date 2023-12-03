@@ -1,6 +1,7 @@
 <div class="home">
   <div class="medecin-list">
-    <h2>Êtes-vous certain de vouloir supprimer ce Médecin?</h2>
+    <h2 *ngIf="!(this.medecinId === -1)">Êtes-vous certain de vouloir supprimer ce Médecin?</h2>
+    <h2 *ngIf="this.medecinId === -1">Quel médecin désirez-vous supprimer??</h2>
     <table>
       <thead>
         <tr>

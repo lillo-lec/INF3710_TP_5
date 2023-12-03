@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+
+# Fichiers de sauvegarde et temporaires
+*.log
+*.bak
+*.swp
+
+# Fichiers spécifiques à l'IDE
+.vscode/
+.idea/
+
+# Fichiers spécifiques à Angular
+/dist/
+/angular.json
+/*.js
+/*.js.map
+/*.d.ts
+
+# Fichiers spécifiques à TypeScript
+*.tsbuildinfo
+
+# Fichiers spécifiques à CSS
+*.css
+*.css.map
+
+# Fichiers spécifiques à l'environnement
+.env
+
+# Fichiers de configuration
+*.config.js
+
+# Fichiers binaires de compilation
+*.class
+*.jar
+*.war
+*.dll
+*.exe
+
+# Fichiers sensibles
+credentials.json
+secrets.json
