@@ -1,42 +1,28 @@
-# Node.js
+# Exclusion des dépendences du projet. Elles peuvent être regénérées
+# automatiquement.
+.nyc_output/
 node_modules/
+false/
 
-# Fichiers de sauvegarde et temporaires
-*.log
-*.bak
-*.swp
+# Exclusion des fichiers Javascripts
+out/
 
-# Fichiers spécifiques à l'IDE
-.vscode/
-.idea/
+# NPM Debug Log
+npm-debug.log
 
-# Fichiers spécifiques à Angular
-/dist/
-/angular.json
-/*.js
-/*.js.map
-/*.d.ts
+##Typescrit compilation ##
 
-# Fichiers spécifiques à TypeScript
-*.tsbuildinfo
+*.js.map
+*.js
 
-# Fichiers spécifiques à CSS
-*.css
-*.css.map
 
-# Fichiers spécifiques à l'environnement
-.env
+# Garder les fichiers necessaires pour les tests
+!systemjs.config.js
+!karma.conf.js
+!karma-test-shim.js
+!systemjs.config.extras.js
+!tsconfig.app.json
+!tsconfig.spec.json
+!tsconfig.json
+!package-lock.json
 
-# Fichiers de configuration
-*.config.js
-
-# Fichiers binaires de compilation
-*.class
-*.jar
-*.war
-*.dll
-*.exe
-
-# Fichiers sensibles
-credentials.json
-secrets.json

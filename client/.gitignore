@@ -1,42 +1,45 @@
-# Node.js
-node_modules/
+# compiled output
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+# Only exists if Bazel was run
+/bazel-out
 
-# Fichiers de sauvegarde et temporaires
-*.log
-*.bak
-*.swp
+# dependencies
+/node_modules
 
-# Fichiers spécifiques à l'IDE
-.vscode/
-.idea/
+# profiling files
+chrome-profiler-events*.json
 
-# Fichiers spécifiques à Angular
-/dist/
-/angular.json
-/*.js
-/*.js.map
-/*.d.ts
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# Fichiers spécifiques à TypeScript
-*.tsbuildinfo
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
-# Fichiers spécifiques à CSS
-*.css
-*.css.map
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+!package-lock.json
 
-# Fichiers spécifiques à l'environnement
-.env
-
-# Fichiers de configuration
-*.config.js
-
-# Fichiers binaires de compilation
-*.class
-*.jar
-*.war
-*.dll
-*.exe
-
-# Fichiers sensibles
-credentials.json
-secrets.json
+# System Files
+.DS_Store
+Thumbs.db
